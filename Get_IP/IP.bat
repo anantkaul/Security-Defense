@@ -16,6 +16,10 @@ echo %DefaultGateway_2%
 echo %DefaultGateway_2% > IP-2.txt
 :: pause
 
+:: Compare both the IP Addresses
 comp IP-1.txt IP-2.txt /M
+
+:: Go back to loop
 goto loop
+
 pause
