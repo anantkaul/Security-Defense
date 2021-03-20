@@ -32,7 +32,7 @@ if errorlevel 1 goto error
 goto loop
 
 :error
-START CMD /k "echo network changed && nmap %DefaultGateway_2%"
+START CMD /k "echo MiM Attacker's Details: && nmap %DefaultGateway_2%"
 :: pushd %~dp0
 :: cscript SendMail.vbs
 
