@@ -32,6 +32,7 @@ goto loop
 
 :error
 START CMD /C "ECHO Network Changed && PAUSE"
+nmap -sV -T4 -O -F --version-light %DefaultGateway% > nmap.txt
 goto loop
 
 pause
