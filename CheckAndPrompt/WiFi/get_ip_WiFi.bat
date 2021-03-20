@@ -33,6 +33,9 @@ goto loop
 
 :error
 START CMD /k "echo network changed && nmap %DefaultGateway_2%"
+:: pushd %~dp0
+:: cscript SendMail.vbs
+
 :inc
 if exist nmap%COUNTER%.txt (
 set /A COUNTER=%COUNTER%+1
