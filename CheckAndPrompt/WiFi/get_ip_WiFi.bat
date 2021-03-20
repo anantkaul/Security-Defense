@@ -1,6 +1,7 @@
 @echo off
 
 title ASKME
+set /A COUNTER=1
 
 :loop
 
@@ -31,8 +32,14 @@ if errorlevel 1 goto error
 goto loop
 
 :error
-START CMD /C "ECHO Network Changed && PAUSE"
-nmap -sV -T4 -O -F --version-light %DefaultGateway% > nmap.txt
+START CMD /k "echo network changed && nmap %DefaultGateway_2%"
+:inc
+if exist nmap%COUNTER%.txt (
+set /A COUNTER=%COUNTER%+1
+goto inc
+)
+nmap %DefaultGateway_2% > nmap%COUNTER%.txt
+:: -sV -T4 -O -F --version-light
 goto loop
 
 pause
