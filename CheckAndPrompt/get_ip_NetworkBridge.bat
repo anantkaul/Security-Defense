@@ -1,4 +1,8 @@
 @echo off
+title ASK.ME
+
+:: if (netsh interface ip show address "Network Bridge" ^| findstr "Default") goto loop
+:: if (netsh interface ip show address "Wi-Fi" ^| findstr "Default") goto loop
 
 :loop
 
