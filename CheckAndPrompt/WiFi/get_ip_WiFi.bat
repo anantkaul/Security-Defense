@@ -1,5 +1,7 @@
 @echo off
 
+title ASKME
+
 :loop
 
 :: You should use "Wi-Fi" rather than "Network Bridge" if you have your Wi-Fi adaptor as PUBLIC 
@@ -29,7 +31,7 @@ if errorlevel 1 goto error
 goto loop
 
 :error
-start cmd
+START CMD /C "ECHO Network Changed && PAUSE"
 goto loop
 
 pause

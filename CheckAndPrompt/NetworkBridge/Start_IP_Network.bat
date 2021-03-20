@@ -1,0 +1,1 @@
+start "ASK.ME Find Me" cscript run_GetIP_NetworkBridge.vbs
