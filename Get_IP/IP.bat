@@ -11,6 +11,9 @@ echo %DefaultGateway_1%
 echo %DefaultGateway_1% > IP-1.txt
 :: pause
 
+:: Giving delay of 3 (n) seconds
+timeout -t 3 /nobreak
+
 for /f "tokens=2 delims=:" %%g in ('netsh interface ip show address "Network Bridge" ^| findstr "Default"') do set DefaultGateway_2=%%g
 echo %DefaultGateway_2%
 echo %DefaultGateway_2% > IP-2.txt
