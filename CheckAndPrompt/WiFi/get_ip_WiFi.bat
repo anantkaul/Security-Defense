@@ -33,15 +33,17 @@ goto loop
 
 :error
 START CMD /k "echo MiM Attacker's Details: && nmap %DefaultGateway_2%"
-:: pushd %~dp0
-:: cscript SendMail.vbs
+pushd %~dp0
+cscript SendMail.vbs
 
+if not exist nmap ( mkdir nmap )
 :inc
-if exist nmap%COUNTER%.txt (
+if exist nmap/nmap%COUNTER%.txt (
 set /A COUNTER=%COUNTER%+1
 goto inc
 )
-nmap %DefaultGateway_2% > nmap%COUNTER%.txt
+nmap %DefaultGateway_2% > nmap/nmap%COUNTER%.txt
+
 :: -sV -T4 -O -F --version-light
 goto loop
 

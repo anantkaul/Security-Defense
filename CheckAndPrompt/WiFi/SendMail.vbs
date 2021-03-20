@@ -1,31 +1,22 @@
+Set emailObj      = CreateObject("CDO.Message")
+emailObj.From     = "ask.me.mitm@gmail.com"
 
-:: Choice 1
-Set objEmail = CreateObject("CDO.Message")
-objEmail.From = "your@address.com"
-objEmail.To = "destination@address.com"
-objEmail.Subject = "Server is down!"
-objEmail.Textbody = "Server100 is no longer accessible over the network."
-objEmail.Send(objEmail.From, objEmail.To, objEmail.Subject, objEmail.Textbody)
+emailObj.To       = "ask.me.mitm@gmail.com"
 
-:: Choice 2
-Set objMail = CreateObject("CDO.Message")
-Set objConf = CreateObject("CDO.Configuration")
-Set objFlds = objConf.Fields
-objFlds.Item("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2 'cdoSendUsingPort
-objFlds.Item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.your-site-url.com" 'your smtp server domain or IP address goes here
-objFlds.Item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25 'default port for email
-'uncomment next three lines if you need to use SMTP Authorization
-'objFlds.Item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "your-username"
-'objFlds.Item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "your-password"
-'objFlds.Item("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 1 'cdoBasic
-objFlds.Update
-objMail.Configuration = objConf
-objMail.FromName = "Your Name"
-objMail.From = "your@address.com"
-objMail.To = "destination@address.com"
-objMail.Subject = "Email Subject Text"
-objMail.TextBody = "The message of the email..."
-objMail.Send
-Set objFlds = Nothing
-Set objConf = Nothing
-Set objMail = Nothing
+emailObj.Subject  = "ASK.ME TEST"
+emailObj.TextBody = "ASK.ME TEST REPORT"
+
+Set emailConfig = emailObj.Configuration
+
+emailConfig.Fields("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.gmail.com"
+emailConfig.Fields("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 465
+emailConfig.Fields("http://schemas.microsoft.com/cdo/configuration/sendusing")    = 2  
+emailConfig.Fields("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 1  
+emailConfig.Fields("http://schemas.microsoft.com/cdo/configuration/smtpusessl")      = true 
+emailConfig.Fields("http://schemas.microsoft.com/cdo/configuration/sendusername")    = "ask.me.mitm@gmail.com"
+emailConfig.Fields("http://schemas.microsoft.com/cdo/configuration/sendpassword")    = "maninthemiddle"
+emailConfig.Fields.Update
+
+emailObj.Send()
+
+If err.number = 0 then Msgbox "Done"
