@@ -3,8 +3,35 @@ emailObj.From     = "ask.me.mitm@gmail.com"
 
 emailObj.To       = "ask.me.mitm@gmail.com"
 
+
+Function GetRecentFile()
+  scriptdir = CreateObject("Scripting.FileSystemObject").GetParentFolderName(WScript.ScriptFullName)
+  scriptdir = scriptdir & "\nmap"
+  Dim fso, file
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  Set GetRecentFile = Nothing
+  For Each file in fso.GetFolder(scriptdir).Files
+    If GetRecentFile is Nothing Then
+      Set GetRecentFile = file
+    ElseIf file.DateLastModified > GetRecentFile.DateLastModified Then
+      Set GetRecentFile = file
+    End If
+  Next
+End Function
+
+Dim recentFile
+Set recentFile = GetRecentFile()
+' MsgBox(recentFile)
+
+Set filestreamIn = CreateObject("Scripting.FileSystemObject").OpenTextFile(recentFile,1)
+dim strLine
+strLine = ""
+Do Until filestreamIn.AtEndOfStream
+    strLine = strLine & (filestreamIn.ReadLine) & vbcrlf
+Loop
+
 emailObj.Subject  = "ASK.ME TEST"
-emailObj.TextBody = "ASK.ME TEST REPORT"
+emailObj.TextBody = strLine
 
 Set emailConfig = emailObj.Configuration
 
@@ -19,4 +46,4 @@ emailConfig.Fields.Update
 
 emailObj.Send()
 
-If err.number = 0 then Msgbox "Done"
+If err.number = 0 then Msgbox "Mail Sent"
