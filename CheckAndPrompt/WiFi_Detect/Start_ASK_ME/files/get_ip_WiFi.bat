@@ -4,6 +4,7 @@ title ASKME
 set /A COUNTER=1
 
 :loop
+cd files
 if not exist IP ( mkdir IP )
 
 :: You should use "Wi-Fi" rather than "Network Bridge" if you have your Wi-Fi adaptor as PUBLIC 

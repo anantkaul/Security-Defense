@@ -1,1 +1,0 @@
-start "ASK.ME Find Me" cscript run_GetIP_WiFi.vbs
