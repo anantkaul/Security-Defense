@@ -6,7 +6,7 @@ Case vbYes
     ' "Phew... Nice Try"
 Case vbNo
     Set WshShell_2 = CreateObject ("Wscript.Shell") 
-    WshShell_2.Run chr(34) & "MIMConfirmed.bat" & Chr(34), 0
+    WshShell_2.Run chr(34) & "MIMConfirmed.bat" & Chr(34), 0, true
     Set WshShell_2 = Nothing
 
     result_2 = MsgBox("Do you want to Turn OFF Your WiFi to stay Protected?", vbYesNo, "ASK.ME THREAT WARNING !!")
