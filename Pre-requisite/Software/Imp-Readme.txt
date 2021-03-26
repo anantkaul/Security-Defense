@@ -1,0 +1,1 @@
+Please ... Do not select "Admin only Access Mode" while installing ZenMap (N-Map) tool !!
