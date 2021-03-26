@@ -1,3 +1,4 @@
+' result_3 = MsgBox ("Your Default Gateway MAC has been changed to %DefaultGateway_21:~20,24%") 
 result_1 = MsgBox ("Did you change the network (if No, it may take upto 2 min to scan)?", vbYesNo, "ASK.ME THREAT FOUND !!")
 
 Select Case result_1
