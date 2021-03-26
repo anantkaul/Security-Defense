@@ -25,12 +25,12 @@ for /f "tokens=1 delims=:" %%h in ('arp -a %DefaultGateway_2%') do set DefaultGa
 echo %DefaultGateway_21%
 echo %DefaultGateway_21% > IP/IP-2.txt
 :: pause
+if "%DefaultGateway_21%" == "No ARP Entries Found." goto loop
 
 :: Compare both the IP Addresses
 cd IP
 
-if IP-1.txt == "No ARP Entries Found. " goto loop
-if IP-2.txt == "No ARP Entries Found. " goto loop
+:: if "%DefaultGateway_11%" == "No ARP Entries Found." goto loop
 
 FC /B IP-1.txt IP-2.txt
 
