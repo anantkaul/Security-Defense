@@ -1,5 +1,5 @@
 Dim sInput
-sInput = InputBox("Enter your Mail:")
+sInput = InputBox("Enter your Mail for N-Map Scan Report:")
 ' MsgBox "You entered:" & sInput
 
 Set emailObj      = CreateObject("CDO.Message")
@@ -32,7 +32,7 @@ Do Until filestreamIn.AtEndOfStream
     strLine = strLine & (filestreamIn.ReadLine) & vbcrlf
 Loop
 
-emailObj.Subject  = "ASK.ME TEST"
+emailObj.Subject  = "ASK.ME N-Map Scan Report"
 emailObj.TextBody = strLine
 
 Set emailConfig = emailObj.Configuration

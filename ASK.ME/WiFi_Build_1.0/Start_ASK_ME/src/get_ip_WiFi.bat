@@ -43,6 +43,9 @@ goto loop
 
 :error
 cd ..
+
+start cmd /k "echo Your Default Gateway MAC has been changed to %DefaultGateway_21:~20,24%"
+
 start "ASK_ME_Prompt_Starter" cscript start_prompt_starter.vbs
 goto loop
 
