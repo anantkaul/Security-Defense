@@ -1,5 +1,5 @@
 # ASK.ME
-ASK MITMM Extraction System that protects you from Man-in-the-Middle (ARP Spoofing) Attacks.
+ASK MITM Extraction System that protects you from Man-in-the-Middle (ARP Spoofing) Attacks.
 
 ## Agenda
 The main aim for a secured environment is just a simple trick which can be performed using a windows command prompt. But the speciality of our tool is to give the users an environment that runs at the background (ghost mode) without any interrupt unless there is a serious trouble, which can in turn harm your system as well as your organisation/ company or any sort of personal information like login credentials, card details and many more.
