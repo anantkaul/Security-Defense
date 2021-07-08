@@ -57,7 +57,9 @@ Constantly scanning the arp tables, this displays the lastest (current) Default 
 
 **6. Default Gateway MAC Info**\
 Constantly scanning the arp tables, this displays the lastest (current) Default Gateway MAC address of the host.
+<p align="center">
+  <img src=/GUI/GUI-Screenshot.png>
+</p>
 
-![GUI-Screenshot](/GUI/GUI-Screenshot.png)
+<p align="center">Demonstration Video - https://youtu.be/Vns9gRLL9iE
 
-**Demonstration Video Link:-** https://youtu.be/Vns9gRLL9iE
